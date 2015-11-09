@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<style>
+	
+</style>
+
+<body>
+
+
+
+<script>
+function createText(){
+	var tname = prompt("Enter text name");
+	var x = document.createElement("label");
+	x.innerHTML=tname;
+	myform.appendChild(x);
+	var text = document.createElement("input");
+	text.type = "text";
+	text.value = "";
+	document.body.appendChild(text);
+	
+}
+function createSelect(){
+	myselect = document.createElement("select");
+	
+	var sname=prompt("Enter select label:");
+	var x = document.createElement("label");
+	x.innerHTML=sname;
+	myform.appendChild(x);
+
+	var opt=prompt("Enter option. Enter '.' if you want to end options.");
+	while(opt!="."){
+		theOption=document.createElement("OPTION");
+		theText=document.createTextNode(opt);
+		theOption.appendChild(theText);
+		myselect.appendChild(theOption);
+		opt=prompt("Enter option. Enter '.' if you want to end options.");
+	}
+	myform.appendChild(myselect);
+}
+function createCheck(){
+	var input = document.createElement("input");
+        input.type = "checkbox";
+        input.value = "hello";
+        input.checked = "checked";
+	document.body.appendChild(input);
+}
+function createPass(){
+	var x = document.createElement("label");
+	x.innerHTML="Password";
+	myform.appendChild(x);
+	var text = document.createElement("input");
+	text.type = "password";
+	text.value = "";
+	document.body.appendChild(text);
+}
+function createRadio(){
+	var input = document.createElement("<input type='radio' name='camera_status' />On");
+        input.type = "radio";
+        input.value = "hello";
+        input.checked = "checked";
+	document.body.appendChild(input);
+}
+
+
+function myFunction() {
+    var fname = prompt("Enter form name");
+    
+    if (fname != null) {
+
+	formdiv=document.getElementById("formdiv");
+	myform=document.createElement("form");
+	myform.setAttribute("id","myform");
+	
+	
+	var b1 = document.createElement("input");
+	b1.id="submitb"
+	b1.type = "button";
+	b1.value = "Submit";
+	myform.appendChild(b1);
+	formdiv.appendChild(myform);
+
+	elementsdiv=document.getElementById("elementsdiv");
+
+	var v1 = document.createElement("input");
+	v1.type = "button";
+	v1.value = "Create Text";
+	v1.onclick=createText;
+	elementsdiv.appendChild(v1);
+
+	var v2 = document.createElement("input");
+	v2.type = "button";
+	v2.value = "Create Password";
+	v2.onclick=createPass;
+	elementsdiv.appendChild(v2);
+
+	var v3 = document.createElement("input");
+	v3.type = "button";
+	v3.value = "Create Select";
+	v3.onclick=createSelect;
+	elementsdiv.appendChild(v3);
+
+	var v4 = document.createElement("input");
+	v4.type = "button";
+	v4.value = "Create Radio Buttons";
+	v4.onclick=createRadio;
+	elementsdiv.appendChild(v4);
+
+	var v5 = document.createElement("input");
+	v5.type = "button";
+	v5.value = "Create Check Options";
+	v5.onclick=createCheck;
+	elementsdiv.appendChild(v5);
+    }
+}
+
+</script>
+
+<div><button onclick="myFunction()">Create Form</button></div></br></br>
+
+
+<div id="elementsdiv"></div></br></br>
+<div id="formdiv"></div>
+</body>
+</html>
